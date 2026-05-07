@@ -1,6 +1,24 @@
 # AE Sequence Footage Importer
 
-CEP panel for Adobe After Effects. It imports rendered image sequences from a root folder, recreates the source folder structure in the Project panel, and places everything under `Footages`.
+CEP panel for Adobe After Effects that batch-imports rendered image sequences from a root folder, recreates the source folder structure in the Project panel, and places everything under `Footages`.
+
+Built for motion-design and 3D render workflows where a render folder contains many nested shot/pass/version folders.
+
+## Features
+
+- Drag-and-drop root folder selection.
+- Recursive scan through nested folders.
+- Imports numbered image sequences as footage.
+- Recreates the source folder hierarchy inside After Effects.
+- Places imported footage under a top-level `Footages` folder.
+- Optional source-root folder inside `Footages`.
+- Optional skip for sequences that are already imported by source path.
+- Optional manual FPS conform for imported sequences.
+
+## Compatibility
+
+- Adobe After Effects with CEP extension support.
+- Windows-focused install notes. The panel itself is standard CEP HTML/CSS/JS plus ExtendScript.
 
 ## Install
 
@@ -29,3 +47,13 @@ shot010_beauty.0003.exr
 ```
 
 Supported image extensions include `exr`, `dpx`, `png`, `jpg`, `tif`, `tga`, `psd`, `bmp`, `rla`, `rpf`, `sgi`, `iff`, and `cin`.
+
+## Notes
+
+- This is an unsigned CEP extension, so `PlayerDebugMode` may be required.
+- CEP is Adobe's older extension platform. The import logic is kept in ExtendScript so the core behavior can be reused if the UI is migrated later.
+- The sequence detector expects filenames ending in frame numbers before the extension.
+
+## Status
+
+Experimental production helper. Test on a copy of a project before using it on critical work.
