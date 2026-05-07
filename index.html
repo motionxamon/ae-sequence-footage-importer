@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Sequence Footage Importer</title>
+    <link rel="stylesheet" href="./css/styles.css">
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>Sequence Footage Importer</h1>
+      </header>
+
+      <section id="dropZone" class="drop-zone">
+        <div class="drop-icon">+</div>
+        <div class="drop-title">Drop root folder here</div>
+        <div id="selectedPath" class="path">No folder selected</div>
+      </section>
+
+      <div class="controls">
+        <button id="browseButton" type="button">Choose Folder</button>
+        <button id="importButton" type="button" disabled>Import Sequences</button>
+      </div>
+
+      <label class="option">
+        <input id="createRootFolder" type="checkbox" checked>
+        <span>Create source root folder inside Footages</span>
+      </label>
+
+      <label class="option">
+        <input id="skipExisting" type="checkbox" checked>
+        <span>Skip sequences already imported by path</span>
+      </label>
+
+      <section class="fps-panel">
+        <div class="status-title">Sequence FPS</div>
+        <div class="fps-row">
+          <label class="radio-option">
+            <input id="fpsDefault" name="fpsMode" type="radio" value="default" checked>
+            <span>Use AE default</span>
+          </label>
+          <label class="radio-option">
+            <input id="fpsManual" name="fpsMode" type="radio" value="manual">
+            <span>Set manually</span>
+          </label>
+        </div>
+        <div class="fps-input-row">
+          <input id="fpsValue" type="number" min="1" max="120" step="0.001" value="25" disabled>
+          <span>fps</span>
+        </div>
+      </section>
+
+      <section class="status-wrap">
+        <div class="status-title">Status</div>
+        <pre id="status">Ready.</pre>
+      </section>
+    </main>
+
+    <script src="./lib/CSInterface.js"></script>
+    <script src="./js/main.js"></script>
+  </body>
+</html>
